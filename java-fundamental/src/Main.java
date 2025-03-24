@@ -18,7 +18,7 @@ public class Main {
 
         Goods pointer = new Goods();
         pointer.setName("Pointer");
-        pointer.setWeight(90);
+        pointer.setWeight(90);`
 
         List<Goods> goodsList = new ArrayList<>();
         goodsList.add(redMarker);
