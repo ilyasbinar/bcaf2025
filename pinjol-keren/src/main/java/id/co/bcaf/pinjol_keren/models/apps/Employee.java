@@ -22,9 +22,9 @@ public class Employee {
     private String email;
     private String nip;
 
-    @ManyToOne(targetEntity = Branch.class,  fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Branch.class)
     @JoinColumn(name = "id_branch")
-    private Branch usulan;
+    private Branch branch;
 
     private boolean deleted = Boolean.FALSE;
 }

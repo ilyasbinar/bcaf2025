@@ -23,6 +23,7 @@ public class Branch {
     private String name;
     private String phone;
     private String address;
+    private String province;
 
     @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Employee> employeeList = new ArrayList<>();
