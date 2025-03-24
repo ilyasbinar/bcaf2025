@@ -24,8 +24,4 @@ public class BranchService {
     public Branch getById(UUID branchId) {
         return branchRepository.findById(branchId).get();
     }
-
-    public List<Employee> getEmployeeByBranch(Branch branch) {
-        bra
-    }
 }
