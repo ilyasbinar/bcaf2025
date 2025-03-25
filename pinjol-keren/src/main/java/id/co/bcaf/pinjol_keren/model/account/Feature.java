@@ -1,4 +1,4 @@
-package id.co.bcaf.pinjol_keren.models.account;
+package id.co.bcaf.pinjol_keren.model.account;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,13 +9,11 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "features")
+public class Feature {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    private String code;
     private String name;
-    private String email;
-    private String nip;
-    private String password;
 }

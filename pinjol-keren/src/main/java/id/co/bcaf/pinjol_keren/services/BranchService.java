@@ -1,7 +1,7 @@
 package id.co.bcaf.pinjol_keren.services;
 
-import id.co.bcaf.pinjol_keren.models.apps.Branch;
-import id.co.bcaf.pinjol_keren.models.apps.Employee;
+import id.co.bcaf.pinjol_keren.dto.BranchCreateDTO;
+import id.co.bcaf.pinjol_keren.model.apps.Branch;
 import id.co.bcaf.pinjol_keren.repositories.BranchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +15,14 @@ public class BranchService {
     private BranchRepository branchRepository;
 
     public List<Branch> getBranches(){
-        branchRepository.findAll();
-
-//        branchRepository.findAllByDeleted(false);
-        return null;
+        return branchRepository.findAll();
     }
 
     public Branch getById(UUID branchId) {
         return branchRepository.findById(branchId).get();
+    }
+
+    public void createBranch(BranchCreateDTO branchCreateDTO) {
+
     }
 }

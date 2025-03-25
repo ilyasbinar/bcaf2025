@@ -1,6 +1,6 @@
 package id.co.bcaf.pinjol_keren.services;
 
-import id.co.bcaf.pinjol_keren.models.account.User;
+import id.co.bcaf.pinjol_keren.model.account.User;
 import id.co.bcaf.pinjol_keren.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 

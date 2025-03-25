@@ -1,4 +1,4 @@
-package id.co.bcaf.pinjol_keren.models.apps;
+package id.co.bcaf.pinjol_keren.model.apps;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -11,20 +11,20 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@SQLDelete(sql = "update employee set deleted = true where id =?")
+@SQLDelete(sql = "update branch set deleted = true where id =?")
 @SQLRestriction("deleted = false")
-@Table(name = "employee")
-public class Employee {
+@Table(name = "branch")
+public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
-    private String email;
-    private String nip;
+    private String phone;
+    private String address;
+    private String province;
 
-    @ManyToOne(targetEntity = Branch.class)
-    @JoinColumn(name = "id_branch")
-    private Branch branch;
+//    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Employee> employeeList = new ArrayList<>();
 
     private boolean deleted = Boolean.FALSE;
 }

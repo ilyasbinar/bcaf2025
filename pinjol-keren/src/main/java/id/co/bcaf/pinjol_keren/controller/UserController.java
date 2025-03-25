@@ -1,8 +1,6 @@
-package id.co.bcaf.pinjol_keren.controllers;
+package id.co.bcaf.pinjol_keren.controller;
 
-import id.co.bcaf.pinjol_keren.models.account.User;
-import id.co.bcaf.pinjol_keren.models.apps.Employee;
-import id.co.bcaf.pinjol_keren.services.EmployeeService;
+import id.co.bcaf.pinjol_keren.model.account.User;
 import id.co.bcaf.pinjol_keren.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +18,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private EmployeeService employeeService;
 
     @GetMapping("/all")
     public ResponseEntity<Map<String, Object>> getAll(){
@@ -44,9 +40,8 @@ public class UserController {
         response.put("status", "success");
         Map<String, Object> data = new HashMap<>();
 
-        List<Employee> employeeList = employeeService.getEmployeeByBranchId(branchId);
-
-        data.put("employeeList", employeeList);
+//        List<Employee> employeeList = employeeService.getEmployeeByBranchId(branchId);
+//        data.put("employeeList", employeeList);
 
         response.put("data", data);
         return new ResponseEntity<>(response, HttpStatus.OK);
