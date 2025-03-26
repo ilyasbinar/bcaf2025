@@ -7,6 +7,7 @@ import id.co.bcaf.pinjol_keren.security.jwt.JwtResponse;
 import id.co.bcaf.pinjol_keren.security.jwt.JwtUtils;
 import id.co.bcaf.pinjol_keren.security.service.UserDetailsImpl;
 import id.co.bcaf.pinjol_keren.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -37,7 +38,7 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<Map<String, Object>> authenticate(@RequestBody LoginRequestDto loginRequestDto) {
+    public ResponseEntity<Map<String, Object>> authenticate(@Valid @RequestBody LoginRequestDto loginRequestDto) {
         Authentication authentication = authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(loginRequestDto.getUsername(),
                         loginRequestDto.getPassword()));
@@ -49,6 +50,7 @@ public class AuthController {
         List<String> features = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .toList();
+
         Map<String, Object> response = new HashMap<>();
         response.put("status", "success");
 
@@ -57,6 +59,6 @@ public class AuthController {
         Map<String, Object> data = new HashMap<>();
         data.put("jwt", jwtResponse);
         response.put("data", data);
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
