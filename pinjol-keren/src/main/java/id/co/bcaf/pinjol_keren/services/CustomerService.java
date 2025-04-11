@@ -7,6 +7,7 @@ import id.co.bcaf.pinjol_keren.model.account.UserStatus;
 import id.co.bcaf.pinjol_keren.repositories.CustomerRepository;
 import id.co.bcaf.pinjol_keren.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class CustomerService {
     private final UserRepository userRepository;
     private final CustomerRepository customerRepository;
-//    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     public Customer registerCustomer(CustomerRegistrationDTO dto) {
         // Cek apakah email sudah terdaftar
@@ -23,8 +24,9 @@ public class CustomerService {
         }
         User user = new User();
         user.setUsername(dto.getUsername());
-//        user.setPassword(passwordEncoder.encode(dto.getPassword())); // Hash password
+        user.setPassword(passwordEncoder.encode(dto.getPassword())); // Hash password
         user.setPassword(dto.getPassword());
+        user.setPhoneNumber(dto.getPhone());
         user.setStatus(UserStatus.ACTIVE); // Default status: AKTIF
 
         user = userRepository.save(user);
@@ -32,7 +34,6 @@ public class CustomerService {
         // Buat objek Customer baru
         Customer customer = new Customer();
         customer.setAddress(dto.getAddress());
-        customer.setPhone(dto.getPhone());
         customer.setUser(user);
         customer = customerRepository.save(customer);
 

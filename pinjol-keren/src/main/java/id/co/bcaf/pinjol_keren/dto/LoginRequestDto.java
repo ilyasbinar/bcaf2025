@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class LoginRequestDto {
     @NotBlank(message = "Email wajib diisi")
-    @Email(message = "Email tidak valid")
+//    @Email(message = "Email tidak valid")
     private String username;
 
     @NotBlank(message = "Password wajib diisi")

@@ -1,5 +1,6 @@
 package id.co.bcaf.pinjol_keren.controller;
 
+import id.co.bcaf.pinjol_keren.dto.PageRequestDto;
 import id.co.bcaf.pinjol_keren.model.account.User;
 import id.co.bcaf.pinjol_keren.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     @GetMapping("/all")
-    public ResponseEntity<Map<String, Object>> getAll(){
+    public ResponseEntity<Map<String, Object>> getAll(@RequestBody PageRequestDto pageRequestDto) throws Exception {
         Map<String, Object> response = new HashMap<>();
         response.put("status", "success");
         Map<String, Object> data = new HashMap<>();

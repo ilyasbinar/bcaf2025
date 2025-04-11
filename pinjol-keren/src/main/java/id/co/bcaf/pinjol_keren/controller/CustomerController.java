@@ -30,8 +30,8 @@ public class CustomerController {
             @ApiResponse(responseCode = "400", description = "Validasi gagal"),
             @ApiResponse(responseCode = "500", description = "Terjadi kesalahan saat menambahkan customer")
     })
-    public ResponseEntity<Map<String, Object>> register(@Valid @RequestBody CustomerRegistrationDTO dto) {
-        Customer customer = customerService.registerCustomer(dto);
+    public ResponseEntity<Map<String, Object>> register(@Valid @RequestBody CustomerRegistrationDTO customerRegistrationDTO) {
+        Customer customer = customerService.registerCustomer(customerRegistrationDTO);
         CustomerUserDTO customerUserDTO = new CustomerUserDTO(customer.getUser(), customer); // Ambil data dari User & Customer
 
         Map<String, Object> response = new HashMap<>();

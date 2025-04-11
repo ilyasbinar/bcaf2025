@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomerUserDTO {
+public class CustomerUserDTO extends PageRequestDto{
     private String name;
     private String username; // Email sebagai username
     private String status;
@@ -15,11 +15,11 @@ public class CustomerUserDTO {
     private String phone;
 
     public CustomerUserDTO(User user, Customer customer) {
-        this.name = user.getName();
+//        this.name = user.getName();
         this.username = user.getUsername();
         this.status = user.getStatus().name(); // Jika status adalah enum, gunakan .name()
         this.address = customer.getAddress();
-        this.phone = customer.getPhone();
+//        this.phone = customer.getPhone();
     }
 }
 

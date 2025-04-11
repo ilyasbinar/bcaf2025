@@ -56,11 +56,10 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers(
-                                        "/api/download/**",
                                         "/api/v1/home/",
                                         "/swagger-ui.html","/swagger-ui/**",
-                                        "/v3/api-docs/**","/api-docs/**").permitAll()
-                                .requestMatchers("/loginoauth").permitAll()
+                                        "/v3/api-docs/**","/api-docs/**",
+                                        "/loginoauth").permitAll()
                                 .requestMatchers("/api/v1/auth/signin/**", "/api/v1/auth/signin", "/register").permitAll()
                                 .anyRequest().authenticated()
                 )

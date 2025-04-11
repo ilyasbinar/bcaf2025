@@ -13,8 +13,7 @@ public class HomeController {
     private PasswordEncoder passwordEncoder;
 
     @GetMapping("/")
-    public String createBranch() {
-        String pass = passwordEncoder.encode("123456");
-        return pass;
+    public String home() {
+        return passwordEncoder.encode("123456");
     }
 }

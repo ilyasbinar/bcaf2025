@@ -23,6 +23,9 @@ public class Branch {
     private String address;
     private String province;
 
+    private double latitude;
+    private double longitude;
+
 //    @OneToMany(mappedBy = "branch", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<Employee> employeeList = new ArrayList<>();
 

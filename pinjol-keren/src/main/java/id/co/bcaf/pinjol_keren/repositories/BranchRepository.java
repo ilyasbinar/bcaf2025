@@ -9,6 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface BranchRepository extends JpaRepository<Branch, UUID> {
-    List<Branch> findAllByDeleted(boolean deleted);
     List<Branch> findAllByProvince(String province);
 }
