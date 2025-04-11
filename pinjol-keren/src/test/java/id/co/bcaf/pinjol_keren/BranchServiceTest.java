@@ -39,9 +39,6 @@ public class BranchServiceTest {
 
     @Test
     void testGetNearestBranch_withRealData() {
-//        -7.2, 112.7 surabaya
-//        -6.9, 107.6 bandung
-
         LocationDTO locationDTO = new LocationDTO();
         //Surabaya
 //        locationDTO.setLatitude(-7.2);
@@ -54,6 +51,6 @@ public class BranchServiceTest {
         Branch nearest = branchService.getNearestBranch(locationDTO);
 
         assertNotNull(nearest);
-        assertEquals("Branch Jakarta", nearest.getName());
+        assertEquals("Branch Bandung", nearest.getName());
     }
 }

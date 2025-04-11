@@ -49,21 +49,14 @@ public class BranchController {
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PostMapping("/find-my-branch")
-    public ResponseEntity<Map<String, Object>> findMyBranch(@Valid @RequestBody LocationDTO locationDto) {
-        Map<String, Object> response = new HashMap<>();
-        try {
-            // Simulate branch creation (Replace with actual service call)
-            response.put("status", "success");
-            response.put("message", "Branch berhasil ditambahkan");
 
-            Branch branch = branchService.getNearestBranch(locationDto);
-
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        } catch (Exception e) {
-            response.put("status", "error");
-            response.put("message", "Terjadi kesalahan saat menambahkan branch.");
-            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    @PostMapping("/nearest")
+    public ResponseEntity<Branch> getNearestBranch(@RequestBody LocationDTO location) {
+        Branch branch = branchService.getNearestBranch(location);
+        if (branch != null) {
+            return ResponseEntity.ok(branch);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 
