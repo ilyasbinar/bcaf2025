@@ -52,4 +52,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             pkill -f 'java -jar' || true
-            nohup java -jar /home/${{ secrets.VM_USERNAME }}/pinjol-app/*.jar > /home/${{ secrets.VM_USERNAME }}/pinjol-app/app.log 2>&1 &
+            nohup java -jar /home/${{ secrets.VM_USERNAME }}/pinjol-app/pinjol-keren/target/*.jar > /home/${{ secrets.VM_USERNAME }}/pinjol-app/app.log 2>&1 &
