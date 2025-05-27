@@ -21,6 +21,16 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: print
+        run:  |
+          echo "VM_HOST=${{ secrets.VM_HOST }}"
+          echo "VM_USERNAME=${{ secrets.VM_USERNAME }}"
+          echo "SSH_PRIVATE_KEY=${{ secrets.SSH_PRIVATE_KEY }}"
+          echo "JAVA_HOME=${JAVA_HOME}"
+          echo "Working Directory: $(pwd)"
+          echo "Environment Variables:"
+          env
+
       - name: Build pinjol-keren app
         working-directory: ./pinjol-keren
         run: mvn clean package -DskipTests
