@@ -1,4 +1,4 @@
-name: CI/CD for pinjol-keren
+name: CI/CD for pinjol-keren test
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "pinjol-keren/target/*.jar"
+          source: "pinjol-keren/target/*.jar"  # ✅ This works with context from repo root
           target: "/home/${{ secrets.VM_USERNAME }}/pinjol-app"
 
       - name: SSH to restart app
