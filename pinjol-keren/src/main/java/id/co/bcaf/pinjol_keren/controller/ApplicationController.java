@@ -18,7 +18,7 @@ import java.util.Map;
 public class ApplicationController {
     private final CustomerService customerService;
 
-    @Operation(summary = "Get all application", description = "Get all application")
+    @Operation(summary = "Get all applications", description = "Get all application")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Customer berhasil ditambahkan"),
             @ApiResponse(responseCode = "500", description = "Terjadi kesalahan saat mendapatkan application")
