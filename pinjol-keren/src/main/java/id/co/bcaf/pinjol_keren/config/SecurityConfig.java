@@ -56,12 +56,22 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers(
-                                        "/api/v1/home/",
-                                        "/swagger-ui.html","/swagger-ui/**",
-                                        "/v3/api-docs/**","/api-docs/**",
-                                        "/loginoauth").permitAll()
-                                .requestMatchers("/api/v1/auth/signin/**", "/api/v1/auth/signin", "/register").permitAll()
-                                .requestMatchers("/api/v1/branch/nearest").permitAll()
+                                        "/swagger-ui.html",
+                                        "/swagger-ui/**",
+                                        "/v3/api-docs/**",
+                                        "/api-docs/**",
+                                        "/swagger-resources/**",
+                                        "/webjars/**",
+                                        "/configuration/**"
+                                ).permitAll()
+                                .requestMatchers(
+                                        "/api/v1/auth/signin/**",
+                                        "/api/v1/auth/signin",
+                                        "/register",
+                                        "v1/home/encode",  // Correct the path here to match the full URL with /api context path
+                                        "/api/v1/branch/nearest",  // Also update this to include /api
+                                        "/loginoauth"
+                                ).permitAll()
                                 .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())

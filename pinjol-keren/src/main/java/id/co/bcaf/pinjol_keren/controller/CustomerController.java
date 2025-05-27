@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/customers")
+@RequestMapping("/be/api/v1/customers")
 @RequiredArgsConstructor
 @Tag(name = "Customer", description = "API untuk mengelola data customer")
 public class CustomerController {

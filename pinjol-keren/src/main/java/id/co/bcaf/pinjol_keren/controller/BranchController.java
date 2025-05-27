@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/branch")
+@RequestMapping("/v1/branch")
 @Tag(name = "Branch", description = "API untuk mengelola cabang")
 public class BranchController {
 
@@ -51,6 +51,7 @@ public class BranchController {
     }
 
     @PostMapping("/nearest")
+    @Operation(summary = "Get the nearest branch", description = "Mengambil cabang terdekat berdasarkan lokasi")
     public ResponseEntity<Branch> getNearestBranch(@RequestBody LocationDTO location) {
         Branch branch = branchService.getNearestBranch(location);
         if (branch != null) {

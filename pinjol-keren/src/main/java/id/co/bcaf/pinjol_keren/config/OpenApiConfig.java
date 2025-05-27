@@ -20,7 +20,7 @@ public class OpenApiConfig {
     public GroupedOpenApi v1() {
         return GroupedOpenApi.builder()
                 .group("pinjol-keren-api")
-                .pathsToMatch("/api/v1/**")
+                .pathsToMatch("/v1/**")
                 .build();
     }
 
@@ -28,7 +28,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
 //                .addServersItem(new Server().url("https://labs.lua.co.id/pinjol-keren"))
-                .addServersItem(new Server().url("http://localhost:8080"))
+                .addServersItem(new Server().url("http://localhost:8080/api"))
                 .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
                 .components(new Components().addSecuritySchemes("Bearer Authentication", createAPIKeyScheme()))
                 .info(new Info().title("PinKer API")
